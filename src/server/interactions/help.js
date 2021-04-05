@@ -1,12 +1,5 @@
-const helpMessage = `
-Podium Help
------------
+export const helpMessage = ":blue_book:  https://smashpodium.vercel.app/help";
 
-Hello there :heart:
-`;
-
-export default async function ({ body, sendResponse, updateCache }) {
-  const responseBody = { type: 4, data: { content: helpMessage } };
-  sendResponse({ status: 200, body: responseBody });
-  updateCache({ status: 200, body: responseBody });
+export default async function helpInteraction() {
+  return { status: 200, body: { type: 4, data: { content: helpMessage } } };
 }

@@ -6,3 +6,4 @@ export const DISCORD_SLASH_COMMANDS_FAQ =
 export const DISCORD_INVITE = "https://discord.gg/pdyuw8EHgD";
 
 export const GITHUB_REPO = "https://github.com/sneyed/podium";
+export const HELP_PAGE = "https://smashpodium.vercel.app/help";
