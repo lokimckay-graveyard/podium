@@ -1,7 +1,9 @@
+import Head from "next/head";
+
 export default function MetaTags() {
   const domain = process.env.PODIUM_DOMAIN || "https://smashpodium.vercel.app/";
   return (
-    <>
+    <Head>
       <meta name="title" content="Podium" />
       <meta
         name="description"
@@ -25,6 +27,6 @@ export default function MetaTags() {
         content="Generate results of competitive Smash events"
       />
       <meta property="twitter:image" content={`${domain}img/seo-preview.png`} />
-    </>
+    </Head>
   );
 }

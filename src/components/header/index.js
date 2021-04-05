@@ -12,8 +12,8 @@ export default function Header() {
         <title>Podium</title>
         <link rel="icon" href="/favicon.svg" />
         <link href="/font/style.css" rel="stylesheet" />
-        <MetaTags />
       </Head>
+      <MetaTags />
       <div className={styles.header}>
         <div>
           <Link href="/">
