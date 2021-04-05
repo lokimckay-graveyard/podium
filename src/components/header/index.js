@@ -3,6 +3,7 @@ import Logo from "../logo";
 import Link from "next/link";
 import Nav from "../nav";
 import styles from "./header.module.scss";
+import MetaTags from "./meta";
 
 export default function Header() {
   return (
@@ -11,6 +12,7 @@ export default function Header() {
         <title>Podium</title>
         <link rel="icon" href="/favicon.svg" />
         <link href="/font/style.css" rel="stylesheet" />
+        <MetaTags />
       </Head>
       <div className={styles.header}>
         <div>
