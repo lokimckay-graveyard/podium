@@ -1,0 +1,18 @@
+@use "src/styles/colours.scss" as col;
+
+.textinput {
+  padding: 10px;
+  background-color: col.$blue-100;
+  color: col.$white;
+  border: 1px ridge col.$grey-200;
+  border-radius: 4px;
+
+  &::placeholder {
+    color: col.$placeholder;
+  }
+
+  &:focus {
+    box-shadow: 0 0 5px 1px col.$focus;
+    outline: none;
+  }
+}

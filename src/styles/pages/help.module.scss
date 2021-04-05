@@ -1,0 +1,9 @@
+@use "src/styles/spacing.scss" as spc;
+
+.section {
+  h2 {
+    margin-top: spc.$sectionHeadingTop;
+    margin-bottom: spc.$sectionHeadingBottom;
+  }
+  margin-bottom: spc.$sectionBottom;
+}

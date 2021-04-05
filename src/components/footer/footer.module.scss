@@ -1,0 +1,34 @@
+@use "src/styles/colours.scss" as col;
+@use "src/styles/spacing.scss" as spc;
+
+.footer {
+  text-align: right;
+  width: 100%;
+  min-width: spc.$contentWidthMobile;
+  bottom: 0;
+
+  color: col.$white;
+  padding: 8px spc.$pagePaddingX;
+
+  a {
+    border-radius: 4px;
+    padding: 4px;
+    margin: 0 -4px;
+  }
+}
+
+// Mobile
+@media only screen and (max-width: spc.$desktop - 1) {
+  .footer {
+    position: relative;
+    text-align: center;
+    padding-bottom: 48px;
+  }
+}
+
+// Desktop
+@media only screen and (min-width: spc.$desktop) {
+  .footer {
+    position: fixed;
+  }
+}

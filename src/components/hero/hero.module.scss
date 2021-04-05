@@ -1,0 +1,43 @@
+@use "src/styles/colours.scss" as col;
+
+.hero {
+  width: 100%;
+  display: inline-grid;
+  justify-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 60px;
+  fill: col.$white;
+}
+
+.title {
+  padding: 0;
+  margin: 0;
+
+  line-height: 1.15;
+  font-size: 4rem;
+  white-space: nowrap;
+
+  &:focus {
+    border-radius: 4px;
+    box-shadow: 0 0 10px 1px col.$focus;
+    outline: none;
+  }
+}
+
+.description {
+  padding: 0 8px;
+  margin: 0 -8px;
+  margin-top: 8px;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  text-align: center;
+
+  &:focus {
+    border-radius: 4px;
+    box-shadow: 0 0 10px 1px col.$focus;
+    outline: none;
+  }
+}

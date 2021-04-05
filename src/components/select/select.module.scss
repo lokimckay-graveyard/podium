@@ -1,0 +1,22 @@
+@use "src/styles/colours.scss" as col;
+@use "src/styles/fonts.scss" as font;
+
+.select {
+  display: inline-grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 16px;
+
+  span {
+    display: inline-block;
+    font-family: font.$heading;
+  }
+
+  select {
+    padding: 8px;
+    border-radius: 4px;
+    background-color: col.$blue-100;
+    color: col.$white;
+    cursor: pointer;
+  }
+}

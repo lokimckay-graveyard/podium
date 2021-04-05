@@ -1,0 +1,38 @@
+@use "src/styles/colours.scss" as col;
+@use "src/styles/fonts.scss" as font;
+@use "src/styles/spacing.scss" as spc;
+
+.header {
+  padding: 8px spc.$pagePaddingX;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: space-between;
+
+  min-width: spc.$contentWidthMobile;
+}
+
+.brand {
+  display: inline-grid;
+  grid-auto-flow: column;
+  align-items: center;
+  padding: 0 8px;
+  gap: 8px;
+
+  &:focus {
+    border-radius: 4px;
+    box-shadow: 0 0 5px 1px col.$focus;
+    outline: none;
+  }
+}
+
+.logo {
+  width: 25px;
+  fill: col.$white;
+}
+
+.text {
+  font-family: font.$heading;
+  font-size: 1.5rem;
+  color: col.$white;
+}

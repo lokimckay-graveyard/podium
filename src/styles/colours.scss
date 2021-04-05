@@ -1,0 +1,60 @@
+// @use "src/styles/colours.scss" as col;
+
+// Foundation
+$black: #111111;
+$black-100: #222222;
+
+$grey-100: #4b4b4b;
+$grey-200: #61666f;
+
+$white: #ffffff;
+$white-100: #f6efef;
+$white-200: #edf5f4;
+
+$blue-100: #0f252e;
+$blue-200: #183b4b;
+$blue-300: #56c7f0;
+$blue-400: #1eb4eb;
+$blue-500: #11a2d6;
+$blue-900: #1ecfeb;
+$blue-1000: #56d1f0;
+$blue-1100: #87e6f5;
+
+$green-100: #121a19;
+$green-200: #141f1e;
+$green-300: #152529;
+$green-500: #20292a;
+$green-600: #27464e;
+$green-900: #1bc885;
+$green-1000: #02f26a;
+$green-1100: #77f9be;
+$green-1200: #02f26a;
+
+$red-1000: #f71735;
+
+// States
+$focus: $white;
+$visited: $blue-900;
+$hover: $blue-1100;
+$highlight: $green-1000;
+
+$bg-topLeft: #121a19; //rgba(18, 26, 25, 0.95); // #121a19
+$bg-bottomRight: #183b4b; // rgba(24, 59, 75, 0.9); // #183b4b
+$heading: $white;
+$placeholder: $green-900;
+
+// Gradients
+$fancy: linear-gradient(45deg, $green-100, $green-1000, $blue-100, $blue-1000);
+
+$rainbow: linear-gradient(
+  45deg,
+  #ff0000,
+  #ff7300,
+  #fffb00,
+  #48ff00,
+  #00ffd5,
+  #002bff,
+  #7a00ff,
+  #ff00c8,
+  #ff0000
+);

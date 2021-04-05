@@ -1,0 +1,40 @@
+@use "src/styles/colours.scss" as col;
+@use "src/styles/spacing.scss" as spc;
+
+.textarea {
+  padding: 10px;
+  background-color: col.$blue-100;
+  color: col.$white;
+  border: 1px ridge col.$grey-200;
+  border-radius: 4px;
+
+  &::placeholder {
+    color: col.$placeholder;
+  }
+
+  &:focus {
+    box-shadow: 0 0 5px 1px col.$focus;
+    outline: none;
+  }
+}
+
+// Tablet +
+@media only screen and (min-width: spc.$tablet) {
+  .textarea::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  .textarea::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+
+  .textarea::-webkit-scrollbar-corner {
+    border-radius: 10px;
+  }
+
+  .textarea::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: col.$green-900;
+  }
+}

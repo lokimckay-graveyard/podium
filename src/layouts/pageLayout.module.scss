@@ -1,0 +1,40 @@
+@use "src/styles/spacing.scss" as spc;
+
+$sidePadding: 32px;
+
+.main {
+  margin: auto;
+}
+
+// Mobile
+@media only screen and (max-width: spc.$tablet - 1) {
+  .main {
+    padding: 0 $sidePadding;
+    padding-top: spc.$pagePaddingTop;
+    padding-bottom: 150px;
+    padding-left: calc(#{$sidePadding} + (100vw - 100%)); //scrollbar fix
+    width: spc.$contentWidthMobile;
+  }
+}
+
+// Tablet
+@media only screen and (min-width: spc.$tablet) and (max-width: spc.$desktop - 1) {
+  .main {
+    padding: 0;
+    padding-top: spc.$pagePaddingTop;
+    padding-bottom: 150px;
+    padding-left: calc(100vw - 100%); //scrollbar fix
+    width: spc.$contentWidthTablet;
+  }
+}
+
+// Desktop
+@media only screen and (min-width: spc.$desktop) {
+  .main {
+    padding: 0;
+    padding-top: spc.$pagePaddingTop;
+    padding-bottom: 150px;
+    padding-left: calc(100vw - 100%); //scrollbar fix
+    width: spc.$contentWidthDesktop;
+  }
+}

@@ -1,0 +1,72 @@
+@use "src/styles/colours.scss" as col;
+@use "src/styles/spacing.scss" as spc;
+
+$indent: 16px;
+
+.container {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0 8px;
+}
+
+.section {
+  h2 {
+    margin-bottom: spc.$sectionHeadingBottom;
+  }
+}
+
+.instructions {
+  margin-bottom: 64px;
+  list-style-position: outside;
+  padding: 0;
+
+  & > li {
+    margin-bottom: 48px;
+  }
+
+  & > li::marker {
+    color: col.$green-1000;
+    font-size: 1.5rem;
+  }
+}
+
+.indent {
+  padding-left: $indent;
+}
+
+.commands {
+  font-size: 16px;
+  list-style: none;
+  padding: 0;
+  margin-left: $indent;
+
+  li div p {
+    margin-bottom: 4px;
+  }
+}
+
+.optionsList {
+  list-style: none;
+  padding: 0;
+
+  & > li {
+    p {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.highlight {
+  color: col.$highlight;
+}
+
+.info {
+  div {
+    margin-bottom: 36px;
+
+    h2 {
+      margin-bottom: spc.$sectionHeadingBottom;
+    }
+  }
+}

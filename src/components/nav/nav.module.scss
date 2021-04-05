@@ -1,0 +1,38 @@
+@use "src/styles/colours.scss" as col;
+@use "src/styles/spacing.scss" as spc;
+
+.nav {
+  ul {
+    display: inline-grid;
+    grid-auto-flow: column;
+    align-items: center;
+    list-style: none;
+    font-size: 1.25rem;
+    padding: 0;
+    margin: 0;
+
+    li a {
+      padding: 2px 4px;
+
+      &:focus {
+        border-radius: 4px;
+        box-shadow: 0 0 5px 1px col.$focus;
+        outline: none;
+      }
+    }
+  }
+}
+
+// Mobile
+@media only screen and (max-width: spc.$tablet - 1) {
+  .nav ul {
+    gap: 8px;
+  }
+}
+
+// Mobile +
+@media only screen and (min-width: spc.$tablet) {
+  .nav ul {
+    gap: 32px;
+  }
+}

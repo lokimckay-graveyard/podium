@@ -1,0 +1,26 @@
+$size: 32px;
+
+.checkbox {
+  display: inline-grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  align-items: center;
+
+  input,
+  label {
+    &:not(:disabled):hover {
+      cursor: pointer;
+    }
+  }
+
+  input {
+    margin: 0;
+    padding-left: 16px;
+
+    width: $size;
+    height: $size;
+  }
+  label {
+    user-select: none;
+  }
+}

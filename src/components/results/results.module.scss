@@ -1,0 +1,54 @@
+@use "src/styles/colours.scss" as col;
+@use "src/styles/fonts.scss" as font;
+
+.discord,
+.plainText {
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+  display: block;
+  margin-bottom: 32px;
+  white-space: pre;
+}
+
+.controls {
+  display: inline-grid;
+  row-gap: 8px;
+  margin-bottom: 16px;
+  width: 100%;
+
+  padding: 16px;
+  border-radius: 4px;
+
+  border: 1px dashed col.$blue-300;
+  background-color: col.$blue-200;
+
+  h3 {
+    margin-top: 0;
+    text-decoration: underline;
+  }
+}
+
+.select {
+  width: 100%;
+  gap: 0;
+  grid-template-columns: 1fr 1fr;
+  span {
+    font-family: font.$code;
+    font-size: 16px;
+  }
+}
+
+.output {
+  margin-top: 24px;
+  margin-bottom: 48px;
+}
+
+.errors {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 16px;
+  color: col.$red-1000;
+  font-size: 16px;
+}

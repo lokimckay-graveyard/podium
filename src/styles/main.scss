@@ -1,0 +1,75 @@
+@use "src/styles/colours.scss" as col;
+@use "src/styles/fonts.scss" as font;
+
+body {
+  color: col.$white;
+  background: linear-gradient(
+      to bottom right,
+      col.$bg-topLeft,
+      col.$bg-bottomRight
+    )
+    no-repeat center center fixed;
+  background-size: cover;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: font.$general;
+}
+
+p {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: font.$heading;
+}
+
+h2 {
+  color: col.$heading;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 8px;
+}
+
+a {
+  color: col.$blue-900;
+  text-decoration: none;
+
+  &:visited {
+    color: col.$visited;
+  }
+
+  &:hover {
+    color: col.$hover;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 2px;
+  }
+
+  &:focus {
+    box-shadow: 0 0 5px 1px col.$focus;
+    outline: none;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.code {
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
