@@ -1,5 +1,7 @@
 # Podium
 
+![discord preview](https://github.com/sneyed/podium/blob/master/public/img/discord-example.png?raw=true)
+
 Discord bot / web interface that provides Smash results data
 
 :blue_book: [About](https://smashpodium.vercel.app/about)  
