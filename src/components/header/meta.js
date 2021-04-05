@@ -1,6 +1,5 @@
 export default function MetaTags() {
-  const defaultDomain = "https://smashpodium.vercel.app/";
-  const domain = process.env.VERCEL_URL || defaultDomain;
+  const domain = process.env.PODIUM_DOMAIN || "https://smashpodium.vercel.app/";
   return (
     <>
       <meta name="title" content="Podium" />
