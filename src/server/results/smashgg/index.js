@@ -1,6 +1,7 @@
 import { EVENT, TOURNAMENT } from "./queries";
 import fetch from "isomorphic-unfetch";
 import { isEqual, uniqWith } from "lodash";
+import { followRedirect } from "../../lib/redirects";
 
 // Parses URL, queries Smashgg API and returns event standings
 export async function getEvents({ url, source, players }) {
@@ -12,7 +13,7 @@ export async function getEvents({ url, source, players }) {
   };
 
   const { queryId, isTourny, tournament, tournamentLink } =
-    source === "smashgg" ? parseSmashggUrl(url) : defaultData;
+    source === "smashgg" ? await parseSmashggUrl(url) : defaultData;
 
   const response = await query({
     query: isTourny ? TOURNAMENT(players) : EVENT(players),
@@ -48,19 +49,23 @@ export function query({ query, variables = {} }) {
 // Extracts player tag and crew from playerName
 function parsePlayerName(playerName) {
   if (!playerName) return {};
+  const match = playerName.match(/^(?:(?<crew>.+) \| )?(?<tag>.+)$/);
+  if (!match) throw `Could not parse player name ${playerName}`;
   const {
     groups: { crew, tag },
-  } = playerName.match(/^(?:(?<crew>.+) \| )?(?<tag>.+)$/);
+  } = match;
   return { crew, tag };
 }
 
 // Determines if a smashgg URL is a tournament or event URL and returns the smashgg slug
-function parseSmashggUrl(url) {
+async function parseSmashggUrl(url) {
   if (!url) throw "No URL defined";
+  const finalUrl = await followRedirect(url);
 
-  const match = url.match(
+  const match = finalUrl.match(
     /tournament\/(?<tournament>[\w\d-_]+)(\/event\/(?<event>[\w\d-_]+))?/
   );
+  if (!match) throw `Could not parse SmashGG URL \`${finalUrl}\``;
 
   const {
     groups: { tournament, event },
