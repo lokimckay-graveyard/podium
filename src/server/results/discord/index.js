@@ -1,11 +1,9 @@
-import { getOutputMessage } from "../../interactions/results/messaging";
 import fetcher from "./fetcher";
 
-export const updateInteraction = ({ token, results, showMissing }) => {
-  const responseMessage = getOutputMessage({ results, showMissing });
+export const updateInteraction = ({ token, content }) => {
   return editOriginalInteractionResponse({
     token,
-    body: { content: responseMessage },
+    body: { content },
   });
 };
 

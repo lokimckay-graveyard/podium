@@ -9,6 +9,7 @@ import log, {
 } from "../../server/lib/logger";
 import { updateInteraction } from "../../server/results/discord";
 import { maxPlayers } from "../../config/limits";
+import { getOutputMessage } from "../../server/interactions/results/messaging";
 
 const validateRequest = ({ players, events }) => {
   return (
@@ -28,7 +29,9 @@ const cachedResponseAvailable = (key, res, reqId) => {
 };
 
 export default async (req, res) => {
-  const reqId = req.body?.id || nanoid();
+  const { id, token, players, events, showMissing } = req.body || {};
+  const reqId = id || nanoid();
+  const isHangingDiscordRequest = id && token;
   try {
     log("/results", reqId, "IN FLIGHT");
 
@@ -38,7 +41,6 @@ export default async (req, res) => {
     }
 
     const cacheKey = getCacheKey(req.body);
-    const { id, token, players, events, showMissing } = req.body;
 
     if (!cachedResponseAvailable(cacheKey, res, reqId)) {
       const { results, errors } = await retrieveResults({
@@ -51,9 +53,11 @@ export default async (req, res) => {
       const body = { results, errors };
       cache.set(cacheKey, { status, body });
 
-      const isHangingDiscordRequest = id && token;
       if (isHangingDiscordRequest) {
-        await updateInteraction({ token, results, showMissing });
+        await updateInteraction({
+          token,
+          content: getOutputMessage({ results, showMissing }),
+        });
       }
 
       sendSuccessResponse({ status, body }, res);
@@ -61,7 +65,12 @@ export default async (req, res) => {
     }
   } catch (error) {
     logError("/results", reqId, error);
-    sendErrorResponse({ status: 500, message: "Internal server error" });
+    const message = typeof error === "string" ? error : "Internal server error";
+    if (isHangingDiscordRequest) {
+      await updateInteraction({ token, content: `:x: ${message}` });
+    }
+
+    sendErrorResponse({ status: 500, message }, res);
   } finally {
     log("/results", reqId, "COMPLETE");
   }

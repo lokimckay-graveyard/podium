@@ -12,6 +12,8 @@ const {
   invalidPlayerAndEvent,
   acrossSmashGGPages,
   duplicatePlayers,
+  redirectUrl,
+  slugTranslation,
 } = resultsTests;
 
 const expectNoEventsReturned = (res) => {
@@ -74,6 +76,15 @@ export const expectSuccess = [
     duplicatePlayers.payload,
     (res) => {
       expect(res.body.results[0].players).toHaveLength(1);
+    },
+  ],
+  [redirectUrl.name, redirectUrl.payload],
+  [
+    slugTranslation.name,
+    slugTranslation.payload,
+    (res) => {
+      // Expect tournament to be the fully qualified name rather than short slug
+      expect(res.body.results[0].tournament).not.toEqual("fns");
     },
   ],
 ];

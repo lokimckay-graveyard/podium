@@ -1,22 +1,23 @@
-const sendResponse = ({ status, body }, res) => {
-  if (body) res.status(status).json(body);
-  if (!body) res.status(status).end();
+const sendResponse = ({ status = 500, body }, res) => {
+  if (!res) throw "[sendReponse] res not provided";
+  if (body) return res.status(status).json(body);
+  if (!body) return res.status(status).end();
 };
 
 export const sendSuccessResponse = (data, res) => {
-  const { status, body } = data;
-
-  sendResponse({ status, body }, res);
+  sendResponse(data, res);
 };
 
 export const sendErrorResponse = (error, res) => {
-  const { status, body } = getErrorResponse(error);
-  sendResponse({ status, body }, res);
+  sendResponse(getErrorResponse(error), res);
 };
 
 const getErrorResponse = (error) => {
-  const { status = 500, message } = error;
-  return { status, body: { errors: [{ message }] } };
+  const { status = 500, message } = error || {};
+  return {
+    status,
+    body: { errors: [{ message: message || "Internal server error" }] },
+  };
 };
 
 export const isMockCall = (reqHeaders = {}) => {
