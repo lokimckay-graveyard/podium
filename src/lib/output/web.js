@@ -1,10 +1,6 @@
 import { isPopulatedArray, sortByField } from "../array";
 import { groupEventsByTournament } from "./util";
-import {
-  intToOrdinal,
-  slugToPrettyName,
-  statusToPrettyStatus,
-} from "../translate";
+import { intToOrdinal, slugToPrettyName } from "../translate";
 import {
   Event,
   Players,
@@ -39,11 +35,11 @@ const eventsToMessage = (events, showMissing) => {
 };
 
 const eventToMessage = (showMissing) => (event, index) => {
-  const { status, players, missing } = event;
+  const { players, missing } = event;
   const isValidEvent =
     isPopulatedArray(players) || (isPopulatedArray(missing) && showMissing);
   return isValidEvent ? (
-    <Event key={index} {...{ ...event, status: statusToPrettyStatus(status) }}>
+    <Event key={index} {...event}>
       {showMissing && missingToMessage(missing)}
       {playersToMessage(players)}
     </Event>

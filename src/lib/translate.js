@@ -1,9 +1,4 @@
-import { startCase } from "lodash";
-
-// SmashGG status to pretty string
-export const statusToPrettyStatus = (status) => {
-  return status !== "COMPLETED" ? ` ( ${capitalize(status)} )` : "";
-};
+import { capitalize, startCase } from "lodash";
 
 // SmashGG tournament or event slug to a pretty name
 export function slugToPrettyName(slug) {

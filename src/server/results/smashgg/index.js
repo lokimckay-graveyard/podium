@@ -85,7 +85,6 @@ function parseSmashggUrl(url) {
 function reshapeEvent(data) {
   const {
     id,
-    state: status,
     name,
     slug,
     tournament,
@@ -116,7 +115,6 @@ function reshapeEvent(data) {
   return {
     id,
     name,
-    status,
     tournament,
     tournamentLink,
     link: `https://smash.gg/${slug}`,
