@@ -1,12 +1,7 @@
 import { isPopulatedArray, sortByField } from "../array";
 import { groupEventsByTournament } from "./util";
 import { nl, nl2 } from "./util";
-import {
-  intToOrdinal,
-  placementToEmoji,
-  slugToPrettyName,
-  statusToPrettyStatus,
-} from "../translate";
+import { intToOrdinal, placementToEmoji, slugToPrettyName } from "../translate";
 
 const noResultsMessage = `No results found :sob:`;
 
@@ -31,22 +26,15 @@ const eventsToMessage = (events, showMissing) => {
 };
 
 const eventToMessage = (showMissing) => (event) => {
-  const {
-    name,
-    status: _status,
-    players: _players,
-    missing: _missing,
-    link,
-  } = event;
+  const { name, players: _players, missing: _missing, link } = event;
   const isValidEvent =
     isPopulatedArray(_players) || (isPopulatedArray(_missing) && showMissing);
 
-  const status = statusToPrettyStatus(_status);
   const players = playersToMessage(_players);
   const missing = showMissing ? missingToMessage(_missing) : "";
 
   return isValidEvent
-    ? `:sparkles: __\`${name}${status}\`__${nl}${link}${nl2}${players}${missing}`
+    ? `:sparkles: __\`${name}\`__${nl}${link}${nl2}${players}${missing}`
     : "";
 };
 

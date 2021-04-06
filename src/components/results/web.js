@@ -11,12 +11,11 @@ export function Tournament({ tournament, link, children }) {
   );
 }
 
-export function Event({ name, status, link, children }) {
+export function Event({ name, link, children }) {
   return (
     <>
       <h3 className={styles.event}>
         ✨ <a href={link}>{name}</a>
-        {status}
       </h3>
 
       {children}

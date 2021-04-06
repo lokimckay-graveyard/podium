@@ -70,7 +70,6 @@ const fns253Sumorbit = ({
 } = {}) => ({
   id: 561023,
   name: "Sumorbit Singles",
-  status: "COMPLETED",
   tournament: "friday-night-smash-253",
   tournamentLink: "https://smash.gg/tournament/friday-night-smash-253",
   link:
@@ -88,7 +87,6 @@ const fns253Singles = ({
 } = {}) => ({
   id: 561022,
   name: "Smash Ultimate Singles",
-  status: "COMPLETED",
   tournament: "friday-night-smash-253",
   tournamentLink: "https://smash.gg/tournament/friday-night-smash-253",
   link:
@@ -153,7 +151,6 @@ export const acrossSmashGGPages = {
     {
       id: 563497,
       name: "Ultimate Singles",
-      status: "COMPLETED",
       tournament: "get-clipped-11-presented-by-metaview",
       tournamentLink:
         "https://smash.gg/tournament/get-clipped-11-presented-by-metaview",

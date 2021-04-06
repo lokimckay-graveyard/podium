@@ -1,10 +1,6 @@
 import { isPopulatedArray, sortByField } from "../array";
 import { groupEventsByTournament, nl, nl2 } from "./util";
-import {
-  intToOrdinal,
-  slugToPrettyName,
-  statusToPrettyStatus,
-} from "../translate";
+import { intToOrdinal, slugToPrettyName } from "../translate";
 
 const noResultsMessage = `No results found`;
 
@@ -27,23 +23,14 @@ const eventsToMessage = (events, showMissing) => {
 };
 
 const eventToMessage = (showMissing) => (event) => {
-  const {
-    name,
-    status: _status,
-    players: _players,
-    missing: _missing,
-    link,
-  } = event;
+  const { name, players: _players, missing: _missing, link } = event;
   const isValidEvent =
     isPopulatedArray(_players) || (isPopulatedArray(_missing) && showMissing);
 
-  const status = statusToPrettyStatus(_status);
   const players = playersToMessage(_players);
   const missing = showMissing ? missingToMessage(_missing) : "";
 
-  return isValidEvent
-    ? `${name}${status}${nl}${link}${nl2}${players}${missing}`
-    : "";
+  return isValidEvent ? `${name}${nl}${link}${nl2}${players}${missing}` : "";
 };
 
 const playersToMessage = (players) => {
