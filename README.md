@@ -13,10 +13,6 @@ Discord bot / web interface that provides Smash results data
 - Instead of passing strings of player/crew names, supply users in discord server
 - Associate an emoji with a player
 
-## To do
-
-- "fns" event does not have correct tournament title
-
 ## Stack
 
 - [NextJS](https://nextjs.org/)
