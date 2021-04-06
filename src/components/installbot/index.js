@@ -3,6 +3,7 @@ import { help, results } from "../../config/commands";
 import { DISCORD_OAUTH, DISCORD_SLASH_COMMANDS_FAQ } from "../../config/links";
 import styles from "./installbot.module.scss";
 import { fireEvent } from "../tracking";
+import { cssJoin } from "../../lib/array";
 
 export default function InstallBot() {
   return (
@@ -23,7 +24,10 @@ export default function InstallBot() {
           />
         </Section>
         <Section title="Invoke command">
-          <p>Use a "slash" command listed below directly in your server!</p>
+          <p>
+            Enter a "slash command" message straight into your discord server,
+            in any channel.
+          </p>
           <Commands />
         </Section>
       </ol>
@@ -66,14 +70,14 @@ function Command({ name, example, description, options }) {
       {example && (
         <div>
           <p>Example:</p>
-
-          <div className={styles.indent}>{example}</div>
+          <div className={cssJoin([styles.indent, styles.example])}>
+            {example}
+          </div>
         </div>
       )}
       {options && (
         <div>
           <p>Options:</p>
-
           <ul className={styles.optionsList}>
             {options.map((option) => (
               <li className={styles.indent}>
@@ -96,9 +100,10 @@ function Commands() {
           name={results.name}
           example={
             <>
-              <span className={styles.highlight}>/results players:</span> Loki,
-              BaM <span className={styles.highlight}>event:</span>{" "}
-              friday-night-smash-253
+              <span className={styles.highlight}>/results players:</span>{" "}
+              Player1, Player2, Player3{" "}
+              <span className={styles.highlight}>event:</span>{" "}
+              https://smash.gg/fns
             </>
           }
           description={results.description}

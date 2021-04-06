@@ -70,3 +70,10 @@ $indent: 16px;
     }
   }
 }
+
+.example {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px dashed col.$blue-300;
+  background-color: col.$blue-200;
+}
