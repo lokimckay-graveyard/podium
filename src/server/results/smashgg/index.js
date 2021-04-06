@@ -5,15 +5,10 @@ import { followRedirect } from "../../lib/redirects";
 
 // Parses URL, queries Smashgg API and returns event standings
 export async function getEvents({ url, source, players }) {
-  const defaultData = {
-    queryId: url,
-    tournament: url,
-    isTourny: true,
-    tournamentLink: `https://smash.gg/tournament/${url}`,
-  };
-
   const { queryId, isTourny, tournament, tournamentLink } =
-    source === "smashgg" ? await parseSmashggUrl(url) : defaultData;
+    source === "smashgg"
+      ? await parseSmashggUrl(url)
+      : await parseSmashggUrl(`https://smash.gg/tournament/${url}`);
 
   const response = await query({
     query: isTourny ? TOURNAMENT(players) : EVENT(players),
@@ -29,6 +24,7 @@ export async function getEvents({ url, source, players }) {
     : [result.data.event];
   if (!events)
     return { message: `No events returned by SmashGG for URL: \`${url}\`` };
+
   return events.map((event) => {
     return reshapeEvent({ ...event, tournament, tournamentLink, players });
   });
@@ -61,9 +57,8 @@ function parsePlayerName(playerName) {
 async function parseSmashggUrl(url) {
   if (!url) throw "No URL defined";
   const finalUrl = await followRedirect(url);
-
   const match = finalUrl.match(
-    /tournament\/(?<tournament>[\w\d-_]+)(\/event\/(?<event>[\w\d-_]+))?/
+    /tournament\/(?<tournament>[^\/\s]+)(\/event\/(?<event>[^\/\s]+))?/
   );
   if (!match) throw `Could not parse SmashGG URL \`${finalUrl}\``;
 

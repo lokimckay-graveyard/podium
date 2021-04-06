@@ -13,7 +13,6 @@ export const sendErrorResponse = (error, res) => {
 };
 
 const getErrorResponse = (error) => {
-  console.log("AAAA", error);
   const { status = 500, message } = error || {};
   return {
     status,

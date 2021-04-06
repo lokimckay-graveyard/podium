@@ -113,4 +113,12 @@ export const resultsTests = {
       events: ["https://smash.gg/fns"],
     },
   },
+  slugTranslation: {
+    // /results players: BaM event: fns
+    name: "event: fns",
+    payload: {
+      players: ["BaM", "Loki"],
+      events: ["fns"],
+    },
+  },
 };
