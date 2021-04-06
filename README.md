@@ -16,8 +16,6 @@ Discord bot / web interface that provides Smash results data
 ## To do
 
 - "fns" event does not have correct tournament title
-- Add test for failed /results call
-- Add test for redirection
 
 ## Stack
 

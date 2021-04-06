@@ -12,6 +12,7 @@ const {
   invalidPlayerAndEvent,
   acrossSmashGGPages,
   duplicatePlayers,
+  redirectUrl,
 } = resultsTests;
 
 const expectNoEventsReturned = (res) => {
@@ -76,6 +77,7 @@ export const expectSuccess = [
       expect(res.body.results[0].players).toHaveLength(1);
     },
   ],
+  [redirectUrl.name, redirectUrl.payload],
 ];
 
 export const expectPartialSuccess = [

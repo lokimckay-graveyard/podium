@@ -105,4 +105,12 @@ export const resultsTests = {
     },
     mockResponse: resultsMockResponses.duplicatePlayers,
   },
+  redirectUrl: {
+    // /results players: BaM event: https://smash.gg/fns
+    name: "event: https://smash.gg/fns (redirect)",
+    payload: {
+      players: ["BaM", "Loki"],
+      events: ["https://smash.gg/fns"],
+    },
+  },
 };
