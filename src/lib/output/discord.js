@@ -22,7 +22,7 @@ export const resultsToOutput = (results, showMissing) => {
 };
 
 const eventsToMessage = (events, showMissing) => {
-  return events.map(eventToMessage(showMissing)).join(nl2);
+  return events.map(eventToMessage(showMissing)).filter(Boolean).join(nl2);
 };
 
 const eventToMessage = (showMissing) => (event) => {
@@ -35,7 +35,7 @@ const eventToMessage = (showMissing) => (event) => {
 
   return isValidEvent
     ? `:sparkles: __\`${name}\`__${nl}${link}${nl2}${players}${missing}`
-    : "";
+    : null;
 };
 
 const playersToMessage = (players) => {
