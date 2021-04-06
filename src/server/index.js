@@ -28,6 +28,3 @@ export const isMockCall = (reqHeaders = {}) => {
   } = process.env;
   return env === "local" && reqHeaders[header] === secret;
 };
-
-// UP TO: /results players: BaM event: https://smash.gg/fns
-// should respond with cannot parse
