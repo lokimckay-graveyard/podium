@@ -1,6 +1,6 @@
 # Podium
 
-![discord preview](https://github.com/sneyed/podium/blob/master/public/img/discord-example.png?raw=true)
+![discord preview](https://github.com/lokimckay/podium/blob/master/public/img/discord-example.png?raw=true)
 
 Discord bot / web interface that provides Smash results data
 
